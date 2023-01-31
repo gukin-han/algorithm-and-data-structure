@@ -1,2 +1,4 @@
 # algorithm-and-data-structure
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+
+# References
+1. 문병로, (2022), 한빛아카데미, "쉽게 배우는 자료구조 with 자바".
