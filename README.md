@@ -2,6 +2,8 @@
 - [자료구조 및 알고리즘](#자료구조-및-알고리즘)
   - [자료구조](#자료구조)
     - [재귀 함수](#재귀-함수)
+    - [리스트 (`List`)](#리스트-list)
+      - [배열 리스트 (ArrayList) 구현](#배열-리스트-arraylist-구현)
   - [알고리즘](#알고리즘)
   - [리뷰](#리뷰)
   - [기초 개념](#기초-개념)
@@ -12,6 +14,33 @@
 ### 재귀 함수
 자기 자신을 호출하는 개념을 recursive라고 하며, 일반적으로 재귀라고 불린다. 재귀 보다는 자기 호출이라는 단어가 더 자연스럽게 해석될 수 있다 [[1](#references)].  
 재귀 함수에서 다뤄지는 유명한 예제들은 피보나치 수열과 하노이 탑 문제 이다.
+### 리스트 (`List`)
+#### 배열 리스트 (ArrayList) 구현
+```java
+package list;
+
+public interface IntegerListInterface {
+    public void add(int index, Integer element);
+
+    public void append(Integer element);
+
+    public Integer remove(int index);
+
+    public boolean removeItem(Integer element);
+
+    public Integer get(int index);
+
+    public void set(int index, Integer element);
+
+    public int indexOf(Integer element);
+
+    public int len();
+
+    public boolean isEmpty();
+
+    public void clear();
+}
+``` 
 ## 알고리즘
 ## 리뷰
 1. [120836. 순서쌍의 개수](./프로그래머스/lv0/120836. 순서쌍의 개수)
