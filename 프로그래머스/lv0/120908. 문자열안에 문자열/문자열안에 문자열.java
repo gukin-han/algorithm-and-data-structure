@@ -1,0 +1,7 @@
+//try-1-2023-02-22-wed-java original
+class Solution {
+    public int solution(String str1, String str2) {
+        int answer = 0;
+        return str1.contains(str2)? 1:2;
+    }
+}
