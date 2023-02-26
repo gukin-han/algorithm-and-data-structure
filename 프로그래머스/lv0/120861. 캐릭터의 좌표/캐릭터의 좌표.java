@@ -1,4 +1,4 @@
-//review?-no-try-1-2023-02-26-sun-native
+//review?-yes-try-1-2023-02-26-sun-native
 class Solution {
     public int[] solution(String[] keyinput, int[] board) {
         int[] currentPosition = new int[2];
