@@ -113,9 +113,13 @@ System.out.println(IntStream.range(2,6).reduce(1, (x, y) -> (x * y)));
 ### 최단 경로
 ### 최소 신장 트리
 ## 리뷰 문제
-* [약수의 개수와 덧셈](https://school.programmers.co.kr/learn/courses/30/lessons/77884) -> 제곱수로 약수의 개수 판별, 약수
+* [약수의 개수와 덧셈](https://school.programmers.co.kr/learn/courses/30/lessons/77884)
+  * 제곱수로 약수의 개수 판별, 약수
 * [x만큼 간격이 있는 n개의 숫자
-](https://school.programmers.co.kr/learn/courses/30/lessons/12954) -> 타입 이슈 문제
+](https://school.programmers.co.kr/learn/courses/30/lessons/12954)
+  * 타입 이슈 문제
+* [다항식 더하기](https://school.programmers.co.kr/learn/courses/30/lessons/120863)
+  * String
 ## References
 1. 문병로, (2022), 한빛아카데미, "쉽게 배우는 자료구조 with 자바".
 2. [Various Authors, (2022), wikepedia, "약수".](https://ko.wikipedia.org/wiki/%EC%95%BD%EC%88%98)
