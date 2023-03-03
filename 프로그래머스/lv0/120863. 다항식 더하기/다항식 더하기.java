@@ -4,7 +4,7 @@ class Solution {
         // it would be easy to have the answer = ax + b
         // put them in the different array whether it has 'x' -> [3x, x], [7]
         // if it's only x -> return 1, if it's not return the charAt[0]
-        int a = 0; // ax + b
+        int a = 0;
         int b = 0;
 
         String[] splitedPolynomial = polynomial.split(" ");
@@ -14,10 +14,10 @@ class Solution {
                 if (element.equals("x")) {
                     a++;
                 } else {
-                    a += Integer.parseInt(element.replace("x",""));
+                    a += (int) element.charAt(0) - 48;
                 }
             } else if (!element.contains("+")) {
-                b += Integer.parseInt(element);
+                b += (int) element.charAt(0) - 48;
             }
         }
 
