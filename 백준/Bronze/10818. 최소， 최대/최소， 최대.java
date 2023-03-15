@@ -9,6 +9,7 @@ class Main {
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
+        scanner.close();
 
         System.out.print(getMin(array));
         System.out.print(" "+ getMax(array));
