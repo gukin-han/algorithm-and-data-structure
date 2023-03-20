@@ -17,8 +17,8 @@ public class Main {
 
         long answer = 0L;
         for (int i = 0; i < DIGIT; i++) {
-            int zeroCount = residentsNum - oneCount[i];
-            answer +=   (long) zeroCount * oneCount[i] * (1L << i) ;
+            long zeroCount = residentsNum - oneCount[i];
+            answer += (zeroCount * oneCount[i] * (1L << i));
         }
         System.out.println(answer);
     }
