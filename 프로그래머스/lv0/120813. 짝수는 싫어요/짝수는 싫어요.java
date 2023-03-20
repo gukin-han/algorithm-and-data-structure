@@ -1,19 +1,19 @@
+import java.util.ArrayList;
+
 class Solution {
     public int[] solution(int n) {
         int[] answer = {};
-        int arraySize = -1;
+        ArrayList<Integer> arrayList = new ArrayList<>();
         
-        if (n % 2 == 0) {
-            arraySize = n/2;
-        }else {
-                arraySize = n/2 + 1;
+        for (int i = 1; i <= n; i++) {
+            if (i % 2 != 0) {
+                arrayList.add(i);
+            }
         }
         
-        answer = new int [arraySize];
-        int startNum = 1;
-        for (int i = 0; i < arraySize; i++) {
-            answer[i] = startNum;
-            startNum += 2;
+        answer = new int[arrayList.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = arrayList.get(i);
         }
                 
         return answer;
