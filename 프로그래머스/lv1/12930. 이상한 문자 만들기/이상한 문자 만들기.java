@@ -10,7 +10,7 @@ class Solution {
                 wordIndex = 0;
                 answer += ch;
                 continue;
-            } else if (isEven(wordIndex) && (ch >= 'a' && ch <= 'z')) {
+            } else if (isEven(wordIndex)) {
                 ch = (char) (ch + 'A'-'a');
             }
         
