@@ -1,22 +1,19 @@
 class Solution {
     public int solution(int n) {
+        int[] primes = new int[n + 1];
+        primes[0] = -1;
+        primes[1] = -1;
         
-        boolean[] isPrime = new boolean[n+1];
-        for (int i = 2; i < isPrime.length; i++) {
-            isPrime[i] = true;
-        }
-        
-        for (int i = 2; i * i <= n; i++) {
-            if (isPrime[i]) {
-                for (int j = i * i; j <= n; j += i){
-                    isPrime[j] = false;
-                }
+        for (int i = 2; i*i <= n; i++) {
+            for (int j = i * i; j <= n; j += i) {
+                primes[j] = -1;
             }
         }
+        
         int answer = 0;
-        for (int i = 0; i < isPrime.length; i++) {
-            if(isPrime[i]) {
-                answer ++;
+        for (int i = 0; i < primes.length; i++) {
+            if (primes[i] == 0) {
+                answer++;
             }
         }
         
