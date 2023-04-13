@@ -1,13 +1,10 @@
 class Solution {
     public double solution(int[] arr) {
         double answer = 0;
-        double sum = 0;
-        int count = arr.length;
-        for (int item: arr) {
-            sum += item;
+        for (int x: arr) {
+            answer += x;
         }
-        
-        answer = sum / count;
+        answer /= arr.length;
         return answer;
     }
 }
