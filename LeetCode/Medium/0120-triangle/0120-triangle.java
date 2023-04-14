@@ -1,23 +1,17 @@
 class Solution {
+    static Integer[][] cache;
     public int minimumTotal(List<List<Integer>> triangle) {
-        if (triangle == null || triangle.size() == 0) return 0;
-        Integer[][] cache = new Integer[triangle.size()][triangle.size()];
-        return dfs(0, 0,triangle, cache);
+        int rowSize = triangle.size();
+        cache = new Integer[rowSize][rowSize];
+        
+        return dfs(triangle, 0, 0);
     }
     
-    
-    int dfs(int row, int pos, List<List<Integer>> triangle, Integer[][] cache){
-        //Out of bounds so just return sum previous value must be leaf node
-        if (row+1 >= triangle.size()) {
-            return triangle.get(row).get(pos); 
-        }
-        if(cache[row][pos] != null) {
-            System.out.println(cache[row][pos]);
-            return cache[row][pos];}
+    int dfs(List<List<Integer>> triangle, int row, int col) {
+        if (cache[row][col] != null) return cache[row][col];
         
-      cache[row][pos] =  triangle.get(row).get(pos) + Math.min ( dfs(row+1, pos,triangle, cache), dfs(row+1, pos+1,triangle, cache));
+        if (row + 1 >= triangle.size()) return triangle.get(row).get(col);
         
-        return cache[row][pos];
-        
+        return cache[row][col] = triangle.get(row).get(col) + Math.min(dfs(triangle, row + 1, col), dfs(triangle, row + 1, col + 1));
     }
 }
