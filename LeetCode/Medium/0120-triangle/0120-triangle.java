@@ -11,7 +11,9 @@ class Solution {
         if (row+1 >= triangle.size()) {
             return triangle.get(row).get(pos); 
         }
-        if(cache[row][pos] != null) return cache[row][pos];
+        if(cache[row][pos] != null) {
+            System.out.println(cache[row][pos]);
+            return cache[row][pos];}
         
       cache[row][pos] =  triangle.get(row).get(pos) + Math.min ( dfs(row+1, pos,triangle, cache), dfs(row+1, pos+1,triangle, cache));
         
