@@ -14,7 +14,7 @@ class Solution {
         
         for (int i = 1; i < numsLength; i++) {
             int tempMax = 0;
-            for (int j = 0; j < i; j++) {
+            for (int j = i - 1; j >= 0; j--) {
                 if (nums[i] > nums[j] && tempMax < memo[j]) {
                     tempMax = memo[j];
                 }
