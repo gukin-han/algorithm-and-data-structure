@@ -1,12 +1,10 @@
 class Solution {
     public int solution(String my_string) {
-        int answer = 0;
 
-        String onlyDigit = my_string.replaceAll("[\\D]", "");
-        for (int i = 0; i < onlyDigit.length(); i++) {
-            answer += (int) onlyDigit.charAt(i) - 48; // explicitly convert char to int
+        int answer = 0;
+        for (char ch: my_string.toCharArray()) {
+            if (ch >= '0' && ch <= '9')  answer += (int) ch - '0';
         }
-            
         return answer;
     }
 }
