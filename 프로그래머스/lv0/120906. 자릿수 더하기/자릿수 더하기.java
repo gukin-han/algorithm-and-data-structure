@@ -1,10 +1,8 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        
-        while (n != 0) {
-            answer += n % 10;
-            n = n / 10;
+        for (String str: String.valueOf(n).split("")) {
+            answer += Integer.parseInt(str);
         }
         return answer;
     }
