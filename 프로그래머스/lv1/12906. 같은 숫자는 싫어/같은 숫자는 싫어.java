@@ -2,19 +2,19 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        int[] answer = {};
         
-        Stack stack = new Stack();
-        
-        for (int x: arr) {
-            if (stack.isEmpty()) stack.push(x);
-            else if ((int) stack.peek() != x) stack.push(x);
+        Stack<Integer> stack = new Stack<>();
+        stack.add(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            int next = arr[i];
+            if (next != stack.peek()) {
+                stack.add(next);
+            }
         }
-                
-        int sizeOfStack = stack.size();
-        answer = new int[sizeOfStack];
-        for (int i = sizeOfStack - 1; i >= 0; i--) {
-            answer[i] = (int) stack.pop();
+        
+        int[] answer = new int[stack.size()];
+        for (int i = answer.length - 1; i >= 0; i--) {
+            answer[i] = stack.pop();
         }
 
         return answer;
