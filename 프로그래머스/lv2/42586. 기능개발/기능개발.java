@@ -1,44 +1,41 @@
 import java.util.*;
-import java.util.LinkedList;
-import java.util.Queue;
 
 class Solution {
-    public int[] solution(int[] progresses, int[] speeds) {
-        Queue queue = new LinkedList();
+    public int[] solution(int[] progresses, int[] speeds){
         
-        for (int i = 0; i < progresses.length; i++) {
-            int leftOver = (100 - progresses[i]);
-            int element = leftOver/speeds[i];
-            if (leftOver % speeds[i] != 0) {
-                element++;
-            }
-            queue.add(element);
+        if(progresses.length == 1) {
+            return new int[]{1};
         }
         
-        List<Integer> list = new ArrayList<>();
-        int countUp = 1;
-        int current = (int) queue.poll();
-        while(!queue.isEmpty()) {
-            if ((int) queue.peek() / current == 0 || (int) queue.peek() == current) {
-                countUp++;
-                queue.poll();
+        int[] requiredDays = new int[progresses.length];
+    
+        for (int i = 0; i < progresses.length; i++) {
+            int requiredDay = (int) Math.ceil((double)(100 - progresses[i]) / speeds[i]);
+            requiredDays[i] = requiredDay;
+        }
+        
+        List<Integer> numOfDeployments = new ArrayList<>();
+        int maxRequiredDay = requiredDays[0];
+        int maxNumOfDeployments = 1;
+        for (int i = 1; i < progresses.length; i++) {
+            if (maxRequiredDay >= requiredDays[i]) {
+                maxNumOfDeployments++;
             } else {
-                list.add(countUp);
-                countUp = 1;
-                current = (int) queue.poll();
+                numOfDeployments.add(maxNumOfDeployments);
+                maxRequiredDay = requiredDays[i];
+                maxNumOfDeployments = 1;
+
             }
             
-            if(queue.isEmpty()) {
-                list.add(countUp);
-                break;
+            if (i + 1 >= progresses.length) {
+                numOfDeployments.add(maxNumOfDeployments);
             }
         }
-    
         
-        int[] answer = list.stream()
-                .mapToInt(i -> i)
-                .toArray();
-        
+        int[] answer = new int[numOfDeployments.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = numOfDeployments.get(i);
+        }
         
         return answer;
     }
