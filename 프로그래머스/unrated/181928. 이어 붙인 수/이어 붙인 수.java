@@ -1,14 +1,14 @@
 class Solution {
     public int solution(int[] num_list) {
-        StringBuilder oddSum = new StringBuilder();
-        StringBuilder evenSum = new StringBuilder();
+        String odd = "";
+        String even = "";
         
-        for (int num: num_list) {
-            if (num % 2 == 1) oddSum.append(num);
-            else if (num % 2 == 0) evenSum.append(num);
+        for (int i: num_list) {
+            if (i % 2 == 0) even += i;
+            else odd += i; 
         }
-            
-        int answer = Integer.parseInt(oddSum.toString()) + Integer.parseInt(evenSum.toString());
+        
+        int answer = Integer.parseInt(even) + Integer.parseInt(odd);
         return answer;
     }
 }
