@@ -1,13 +1,10 @@
 class Solution {
     public String solution(String my_string, String alp) {
-        StringBuilder sb = new StringBuilder(my_string.length());
+        String answer = "";
         for (String str: my_string.split("")) {
-            if (str.equals(alp)) {
-                str = str.toUpperCase();
-            }
-            sb.append(str);
-            
+            if (str.equals(alp)) answer += str.toUpperCase();
+            else answer += str;
         }
-        return sb.toString();
+        return answer;
     }
 }
