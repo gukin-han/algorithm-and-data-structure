@@ -18,11 +18,6 @@ class Solution {
             }
         }
         
-        String ret = "";
-        for (char ch: chars) {
-            ret += ch;
-        }
-        
-        return ret;
+        return String.valueOf(chars);
     }
 }
