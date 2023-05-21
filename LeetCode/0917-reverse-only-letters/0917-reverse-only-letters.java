@@ -6,17 +6,16 @@ class Solution {
         while(left < right) {
             if (!((chars[left] >= 'a' && chars[left] <= 'z') || (chars[left] >= 'A' && chars[left] <= 'Z'))) {
                 left++;
-                continue;
             }
-            if (!((chars[right] >= 'a' && chars[right] <= 'z') || (chars[right] >= 'A' && chars[right] <= 'Z'))){
+            else if (!((chars[right] >= 'a' && chars[right] <= 'z') || (chars[right] >= 'A' && chars[right] <= 'Z'))){
                 right--;
-                continue;
-            }
+            } else {
             char temp = chars[left];
             chars[left] = chars[right];
             chars[right] = temp;
             left++;
             right--;
+            }
         }
         
         String ret = "";
