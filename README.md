@@ -4,7 +4,7 @@
 char ch = 'a';
 
 // approach 1
-if((ch >= 'a' && ch <= 'z') || (ch >= 'a' && ch <= 'z')) {}
+if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {}
 
 // approach 2
 if(Character.isAlphabetic(ch)) {}
