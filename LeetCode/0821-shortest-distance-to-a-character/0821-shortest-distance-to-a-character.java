@@ -5,12 +5,23 @@ class Solution {
             result[i] = Integer.MAX_VALUE;
         }
         
+        int distance = 100_000;
         for (int i = 0 ; i < s.length(); i++) {
             if (s.charAt(i) == c) {
-                result[i] = 0;
-                for(int j = 0; j < s.length(); j++){
-                    result[j] = Math.min(result[j], Math.abs(i - j));
-                }            
+                distance = 0;
+                result[i] = distance;
+            } else {
+                result[i] = ++distance;
+            }
+        }
+        
+        distance = 100_000;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == c) {
+                distance = 0;
+                result[i] = distance;
+            } else {
+                result[i] = Math.min(++distance, result[i]);
             }
         }
         
