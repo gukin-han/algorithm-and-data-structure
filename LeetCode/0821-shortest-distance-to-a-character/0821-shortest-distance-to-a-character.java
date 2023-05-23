@@ -15,7 +15,6 @@ class Solution {
         for (int i = s.length() - 1; i >= 0; i--) {
             if (s.charAt(i) == c) {
                 distance = 0;
-                result[i] = distance;
             } else {
                 result[i] = Math.min(++distance, result[i]);
             }
