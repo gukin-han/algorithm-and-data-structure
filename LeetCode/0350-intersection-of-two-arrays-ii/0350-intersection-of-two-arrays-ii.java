@@ -16,7 +16,7 @@ class Solution {
                 p2++;
             } else if (num1 > num2) {
                 p2++;
-            } else if (num1 < num2) {
+            } else {
                 p1++;
             }
         }
