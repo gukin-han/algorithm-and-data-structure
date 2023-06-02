@@ -1,10 +1,10 @@
 # [unrated] 더 크게 합치기 - 181939 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181939) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181939#qna) 
 
 ### 성능 요약
 
-메모리: 80.7 MB, 시간: 1.69 ms
+메모리: 84.6 MB, 시간: 9.08 ms
 
 ### 구분
 

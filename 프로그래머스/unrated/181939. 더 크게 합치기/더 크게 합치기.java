@@ -1,5 +1,5 @@
 class Solution {
     public int solution(int a, int b) {
-        return Math.max(Integer.parseInt(String.valueOf(a) + String.valueOf(b)),Integer.parseInt(String.valueOf(b) + String.valueOf(a)));
+        return (Integer.parseInt(String.valueOf("" + a + "" + b)) >= Integer.parseInt(String.valueOf("" + b + "" + a)))? Integer.parseInt(String.valueOf("" + a + "" + b)):Integer.parseInt(String.valueOf("" + b + "" + a)) ;
     }
 }
