@@ -1,8 +1,14 @@
 class Solution {
     public int[] solution(int[] arr, int n) {
-        int i = 1;
-        if (arr.length % 2 != 0) i = 0;
-        for ( ;i < arr.length; i += 2) { arr[i] += n;}
+        if (arr.length % 2 == 0) {
+            for (int i = 1; i < arr.length; i += 2) {
+                arr[i] += n;
+            }
+        } else {
+            for (int i = 0; i < arr.length; i += 2) {
+                arr[i] += n;
+            }
+        }
         
         return arr;
     }
