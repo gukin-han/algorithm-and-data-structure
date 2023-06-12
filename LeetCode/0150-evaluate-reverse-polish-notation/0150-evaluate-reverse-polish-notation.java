@@ -12,15 +12,10 @@ class Solution {
             } else {
                 int right = stack.pop();
                 int left = stack.pop();
-                if (token.equals("+")) {
-                    stack.push(left+right);
-                } else if (token.equals("-")) {
-                    stack.push(left-right);
-                } else if (token.equals("*")) {
-                    stack.push(left*right);
-                } else {
-                    stack.push(left/right);
-                }
+                if (token.equals("+")) stack.push(left+right);
+                else if (token.equals("-")) stack.push(left-right);
+                else if (token.equals("*")) stack.push(left*right);
+                else stack.push(left/right);
             }
         }
         
