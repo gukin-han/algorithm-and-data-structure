@@ -2,39 +2,40 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] priorities, int location) {
-        Queue<Integer> q = new LinkedList<>();
-        Queue<Integer> order = new LinkedList<>();
-        
+        Queue<Process> q = new LinkedList<>();
         for (int i = 0; i < priorities.length; i++) {
-            order.add(i);
-            q.add(priorities[i]);
+            q.add(new Process(i, priorities[i]));
         }
-        
-        int ret = 0;
-        
+        int answer = 0;
         while (!q.isEmpty()) {
-            int maxP = q.peek();
-            boolean foundMax = false;
+            Process temp = q.peek();
+            boolean isTempTurn = true;
             for (int i = 0; i < q.size(); i++) {
-                q.add(q.poll());
-                order.add(order.poll());
-                
-                if (maxP < q.peek()) {
-                    foundMax = true;
+                if (temp.priority < q.peek().priority) {
+                    isTempTurn = false;
                     break;
-                }                
-            }
-            
-            if (!foundMax) {
-                ret++;
-                if (order.peek() == location) {
-                    return ret;
+                } else {
+                    q.add(q.poll());
                 }
+            }
+            if (isTempTurn) {
+                answer++;
                 q.poll();
-                order.poll();
+                if (temp.id == location) return answer;
             }
         }
         
-        return order.peek();
+        
+        return answer;
+    }
+}
+
+class Process {
+    public int id;
+    public int priority;
+    
+    public Process(int id, int priority) {
+        this.id = id;
+        this.priority = priority;
     }
 }
