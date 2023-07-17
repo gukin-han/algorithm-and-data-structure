@@ -1,34 +1,39 @@
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
-class Main {
-    public static void main(String[] args) {
-        Queue queue = new LinkedList();
-        Scanner scanner = new Scanner(System.in);
+public class Main {
 
-        int n = scanner.nextInt();
-        int k = scanner.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
 
-        for (int i = 1; i <= n; i++) {
-            queue.add(i);
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 1; i <= N; i++) {
+            q.add(i);
         }
 
-        int[] tempArray = new int[n];
-        int tempIndex = 0;
-        while (!queue.isEmpty()) {
-            for (int i = 0; i < k - 1; i++) {
-                queue.add(queue.poll());
-            }
-            tempArray[tempIndex++] = (int) queue.poll();
+        StringBuilder answer = new StringBuilder();
+        answer.append("<");
+        while (!q.isEmpty()) {
+            answer.append(pollKthElement(q, K));
+            if (q.size() >= 1) answer.append(", ");
+        }
+        answer.append(">");
+
+        System.out.println(answer.toString());
+    }
+
+    private static int pollKthElement(Queue<Integer> q, int K) {
+
+        for(int i = 0; i < K - 1; i++) {
+            q.add(q.poll());
         }
 
-        String answer = "<" + tempArray[0];
-
-        for (int i = 1; i < tempArray.length; i++) {
-            answer += (", " + tempArray[i]);
-        }
-
-        System.out.println(answer + ">");
+        return q.poll();
     }
 }
+
