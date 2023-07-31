@@ -46,12 +46,11 @@ public class Main {
         int curCol = zeroPositions.get(zeroCellCount - 1).get(1);
 
         for (int candidate = 1; candidate <= 9; candidate++) {
-            if (found) return;
             board[curRow][curCol] = candidate;
             if (promising(curRow, curCol)) solveSudoku(zeroCellCount - 1);
+            if (found) return;
         }
-        if (!found) board[curRow][curCol] = 0;
-        return;
+        board[curRow][curCol] = 0;
     }
 
     private static boolean promising(int givenRow, int givenCol) {
