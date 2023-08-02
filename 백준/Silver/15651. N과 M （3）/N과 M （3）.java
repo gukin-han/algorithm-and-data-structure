@@ -1,40 +1,50 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
-    static StringBuilder sb = new StringBuilder();
+    private static StringBuilder answer = new StringBuilder();
+    private static int[] candidates;
+    private static List<Integer> oneOfAnswer = new ArrayList<>();
+
+
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(reader.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N];
-        for (int i = 0; i < N; i++) {
-            arr[i] = i+1;
-        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int r = Integer.parseInt(st.nextToken());
 
-        int[] output = new int[M];
-
-        permutation(arr, 0, M, output);
-        System.out.println(sb);
-
-
+        populateCandidates(n);
+        getCombination(n, r);
+        System.out.println(answer.toString());
     }
 
-    public static void permutation(int[] arr, int depth, int M, int[] output) {
-        if (depth == M) {
-            for (int i = 0; i < output.length; i++) {
-                sb.append(output[i]).append(" ");
-            }
-            sb.append("\n");
+    private static void populateCandidates(int n) {
+        candidates = new int[n];
+        for (int i = 0; i < candidates.length; i++) {
+            candidates[i] = i + 1;
+        }
+    }
+
+    private static void getCombination(int n, int r) {
+        if (r == 0) {
+            getAnswer();
             return;
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            output[depth] = arr[i];
-            permutation(arr, depth+1, M, output);
+        for (int i = 0; i < n; i++) {
+            oneOfAnswer.add(candidates[i]);
+            getCombination(n, r - 1);
+            oneOfAnswer.remove(oneOfAnswer.size() - 1);
         }
+    }
+
+    private static void getAnswer() {
+        for (int i = 0; i < oneOfAnswer.size(); i++) {
+            answer.append(oneOfAnswer.get(i));
+            if (i < oneOfAnswer.size() - 1) answer.append(" ");
+        }
+        answer.append("\n");
     }
 }
