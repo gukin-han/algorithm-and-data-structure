@@ -1,39 +1,43 @@
-import java.util.Arrays;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Main {
-    static void permutation(int[] arr, int depth, int n, int r, boolean[] visited, int[] out) {
-        if (depth == r) {
-            for (int x : out) {
-                System.out.print(x + " ");
-            }
-            System.out.println();
-            return;
-        }
+    private static int[] array;
+    private static int N;
+    private static boolean[] visited;
+    private static List<Integer> temp = new ArrayList<>();
+    private static StringBuilder answer = new StringBuilder();
 
-        for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
-                out[depth] = arr[i];
-                visited[i] = true;
-                permutation(arr, depth + 1, n, r, visited, out);
-                visited[i] = false;
-            }
-        }
-
-
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        N = scanner.nextInt();
+        visited = new boolean[N];
+        array = IntStream.rangeClosed(1, N).toArray();
+        permutation(0);
+        System.out.println(answer.toString().trim());
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int r = n;
-        int[] arr = new int[n];
-        for (int i = 1; i <= n; i++) {
-            arr[i-1] = i;
+    private static void permutation(int numOfElement) {
+        if (numOfElement == N) {
+            for (int i = 0; i < temp.size(); i++) {
+                answer.append(temp.get(i));
+                if(i < temp.size()- 1) answer.append(" ");
+            }
+            answer.append("\n");
         }
-        boolean[] visited = new boolean[n];
-        int[] out = new int[n];
 
-        permutation(arr, 0, n, r, visited, out);
+        for (int i = 0; i < visited.length; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                temp.add(i + 1);
+                permutation(numOfElement + 1);
+                visited[i] = false;
+                temp.remove(temp.size() - 1);
+            }
+        }
+
     }
 }
