@@ -17,14 +17,13 @@ public class Main {
         visited = new boolean[N];
         array = IntStream.rangeClosed(1, N).toArray();
         permutation(0);
-        System.out.println(answer.toString().trim());
+        System.out.println(answer.toString());
     }
 
     private static void permutation(int numOfElement) {
         if (numOfElement == N) {
             for (int i = 0; i < temp.size(); i++) {
-                answer.append(temp.get(i));
-                if(i < temp.size()- 1) answer.append(" ");
+                answer.append(temp.get(i)).append(" ");
             }
             answer.append("\n");
         }
