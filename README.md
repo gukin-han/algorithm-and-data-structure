@@ -1,33 +1,21 @@
-## 백준 풀이 Java 템플릿
-```java
-import java.io.*;
-import java.util.StringTokenizer;
+# Data Structures and Algorithms
+<br>
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] firstLine = br.readLine().split(" ");
-        int N = Integer.parseInt(firstLine[0]);
-        int M = Integer.parseInt(firstLine[1]);
-        
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] nums = new int[N];
-        for (int i = 0; i < nums.length; i ++) {
-            nums[i] = Integer.parseInt(st.nextToken());
-        }
-        
-    }
-}
-```
+## Types of DSA to learn
+You must learn the concenpts below before you actully start solving problems [1]:
+1. basics (brute-force, sorting, data structures)
+2. Dynamic programming
+3. Greedy Algorithm
+4. Math (Prime Number, GCD, Log)
+5. Backtracking
+6. BFS, DFS
+7. Simulation
+8. Binary Search
+9. Two Pointers
+10. Single Source Shortest Path Problem
+11. Union Find
+12. Minimum Spanning Tree
+<br>
 
-## String
-### 문자열이 알파벳인지
-```java
-char ch = 'a';
-
-// approach 1
-if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {}
-
-// approach 2
-if(Character.isAlphabetic(ch)) {}
-```
+## Refereces
+1. [](https://seongmok.com/m/85)
