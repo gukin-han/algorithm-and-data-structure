@@ -2,7 +2,7 @@
 <br>
 
 ## Types of DSA to learn
-You must learn the concenpts below before you actully start solving problems [1]:
+You must learn the concenpts below before you actully start solving problems [[1](https://seongmok.com/m/85)]:
 1. basics (brute-force, sorting, data structures)
 2. Dynamic programming
 3. Greedy Algorithm
@@ -18,4 +18,4 @@ You must learn the concenpts below before you actully start solving problems [1]
 <br>
 
 ## Refereces
-1. [](https://seongmok.com/m/85)
+1. [성목, (2022), Tistory, "코딩테스트를 준비하는 효율적인 방법".](https://seongmok.com/m/85)
