@@ -22,3 +22,28 @@ You must learn the concenpts below before you actully start solving problems [[1
 
 ## Refereces
 1. [성목, (2022), Tistory, "코딩테스트를 준비하는 효율적인 방법".](https://seongmok.com/m/85)
+<br>
+
+## Appendix A. Greatest Common Division
+### Recurive version
+```java
+public static int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
+```
+<br>
+
+### Using While loop
+```java
+public static int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+```
