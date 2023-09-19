@@ -1,11 +1,10 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int num: nums) {
-            if(map.containsKey(num)) return num;
-            map.put(num, 1);
+        Set<Integer> set = new HashSet<>();
+        for (int num: nums) {
+            if (set.contains(num)) return num;
+            else set.add(num);
         }
-        
         
         return -1;
     }
