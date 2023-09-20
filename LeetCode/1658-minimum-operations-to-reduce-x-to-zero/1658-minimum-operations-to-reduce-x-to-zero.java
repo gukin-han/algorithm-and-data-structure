@@ -29,7 +29,6 @@ class Solution {
                 
                 maxAnswer = Math.max(right - left + 1, maxAnswer);
             }
-            System.out.println(left + " " + right);
         }
         
         return maxAnswer == -1? -1: nums.length - maxAnswer;
