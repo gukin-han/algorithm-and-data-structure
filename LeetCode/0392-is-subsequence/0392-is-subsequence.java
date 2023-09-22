@@ -13,7 +13,7 @@ class Solution {
             } 
             tPointer++;
             
-            if (s.length() - sPointer > t.length() - tPointer) break;
+            // if (s.length() - sPointer > t.length() - tPointer) break;
             
         }
         
