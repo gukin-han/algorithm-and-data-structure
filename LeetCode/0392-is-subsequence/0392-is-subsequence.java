@@ -1,8 +1,8 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
-        if (s.length() > t.length()) return false;
-        else if (s.length() == t.length()) return s.equals(t);
-        else if (s.length() == 0) return true;
+        // if (s.length() > t.length()) return false;
+        // else if (s.length() == t.length()) return s.equals(t);
+        // else if (s.length() == 0) return true;
         
         int sPointer = 0;
         int tPointer = 0;
@@ -11,10 +11,7 @@ class Solution {
             if (s.charAt(sPointer) == t.charAt(tPointer)) {
                 sPointer++;
             } 
-            tPointer++;
-            
-            // if (s.length() - sPointer > t.length() - tPointer) break;
-            
+            tPointer++;            
         }
         
         return sPointer == s.length();
