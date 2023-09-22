@@ -13,10 +13,8 @@ class Solution {
             
             if (sChar == tChar) {
                 sPointer++;
-                tPointer++;
-            } else {
-                tPointer++;
-            }
+            } 
+            tPointer++;
             
             if (s.length() - sPointer > t.length() - tPointer) break;
             
