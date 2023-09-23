@@ -2,9 +2,7 @@ class Solution {
     public int longestStrChain(String[] words) {
         Arrays.sort(words, (a, b) -> a.length() - b.length());
         if (words.length == 1) return 1;
-        for (String word: words) {
-            System.out.print(word + " ");
-        }
+
 
         int predecessor = 0;
         int result = 0;
