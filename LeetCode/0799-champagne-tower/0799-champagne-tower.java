@@ -12,7 +12,7 @@ class Solution {
     private double dp(int row, int col) {
         if (col < 0 || col > row) return 0;
         if (memo[row][col] != null) return memo[row][col];
-        if (row == 0 && col == 0) return poured;
+        if (row < 0) return 0;
         
         return memo[row][col] = Math.max((dp(row  - 1, col) - 1)/2, 0) + Math.max((dp(row  - 1, col - 1) - 1)/2, 0);
     }
