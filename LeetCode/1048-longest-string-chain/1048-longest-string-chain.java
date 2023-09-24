@@ -3,6 +3,7 @@ class Solution {
         Arrays.sort(words, (a, b) -> a.length() - b.length());
         if (words.length == 1) return 1;
 
+
         int predecessor = 0;
         int result = 0;
         int dp[] = new int[words.length];
@@ -10,13 +11,15 @@ class Solution {
         for (int i = 1; i < words.length; i++) {
             String wordB = words[i];
             dp[i] = 1;
-            for (int j = 0; j < words.length; j++) {
-                if (i == j) continue;
+            for (int j = 0; j < i; j++) {
                 String wordA = words[j];
                 if(isPredecessor(wordA, wordB)) dp[i] = Math.max(dp[j] + 1, dp[i]) ;
                 result = Math.max(dp[i], result);
+                // System.out.print(dp[i] + " ");
             }
+            // System.out.println(" ");
         }
+
         return result;
     }
 
