@@ -26,7 +26,6 @@ class Solution {
 
         int refA = 0;
         int refB = 0;
-        if (wordA.length() != wordB.length() - 1) return false;
 
         while (refA < wordA.length() && refB < wordB.length()) {
             if(wordA.charAt(refA) == wordB.charAt(refB)) refA++;
