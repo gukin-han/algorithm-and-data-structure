@@ -1,23 +1,26 @@
 class Solution {
-    private static StringBuilder sb = new StringBuilder();
-        public String decodeAtIndex(String S, int K) {
-        int i;
-        long N = 0;
-        for (i = 0; N < K; i++) {
-            N = Character.isDigit(S.charAt(i)) ? N * (S.charAt(i) - '0') : N + 1;
+    public String decodeAtIndex(String s, int k) {
+        long totalLength = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) totalLength *= (int) c - '0';
+            else totalLength++;
         }
-        for (i--; i > 0; i--) {
-            if (Character.isDigit(S.charAt(i))) {
-                N /= S.charAt(i) - '0';
-                K %= N;
-            }
-            else {
-                if (K % N == 0) {
-                    break;
-                }
-                N--;
-            }
+        
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                totalLength /= (int) c - '0';
+                k %= totalLength;
+            } else {
+                if (k == totalLength || k == 0) return "" + s.charAt(i);
+               totalLength--; 
+            } 
+            
+            
         }
-        return Character.toString(S.charAt(i));
+        
+        return "";
+        
     }
 }
