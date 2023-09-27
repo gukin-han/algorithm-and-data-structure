@@ -1,7 +1,7 @@
 class Solution {
     public String decodeAtIndex(String s, int k) {
         
-        Long totalLength = 0L;
+        long totalLength = 0;
         
         // 1. Calculate the total length;
         for (int i = 0; i < s.length(); i++) {
