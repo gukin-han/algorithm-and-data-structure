@@ -5,16 +5,12 @@ class Solution {
         Stack<Integer> s = new Stack<>();
         
         for (int i = nums.length - 1; i >= 0; i--) {
-            
-            while (!s.isEmpty() && s.peek() < nums[i]) {
-                second = s.pop();
-            }
-            
             if (second > nums[i]) {
                 return true;
             }
-            
-            
+            while (!s.isEmpty() && s.peek() < nums[i]) {
+                second = s.pop();
+            }
             s.push(nums[i]);
         }
         
