@@ -1,23 +1,12 @@
-class Solution {
+public class Solution {
     public String reverseWords(String s) {
-        
-        StringBuilder answer = new StringBuilder();
-        Stack<Character> stack = new Stack<>();
-        for(char c: s.toCharArray()) {
-            if (c ==' ') {
-                while(!stack.isEmpty()) {
-                    answer.append(stack.pop());
-                }
-                answer.append(c);
-            } else {
-                stack.push(c);
-            }
+        String[] words = s.split("\\s+"); 
+        StringBuilder reversed = new StringBuilder();
+        for (String word : words) {
+            StringBuilder reversedWord = new StringBuilder(word);
+            reversedWord.reverse(); 
+            reversed.append(reversedWord).append(" "); 
         }
-        
-        while(!stack.isEmpty()) {
-            answer.append(stack.pop());
-        }
-        
-        return answer.toString();
+        return reversed.toString().trim();
     }
 }
