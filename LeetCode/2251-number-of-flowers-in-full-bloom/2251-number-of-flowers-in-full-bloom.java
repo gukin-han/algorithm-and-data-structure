@@ -1,10 +1,9 @@
 class Solution {
-    public int[] fullBloomFlowers(int[][] flowers, int[] persons) {
-        int n = flowers.length;
-        int[] start = new int[n];
-        int[] end = new int[n];
+    public int[] fullBloomFlowers(int[][] flowers, int[] people) {
+        int[] start = new int[flowers.length];
+        int[] end = new int[flowers.length];
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0 ; i < flowers.length; i++) {
             start[i] = flowers[i][0];
             end[i] = flowers[i][1];
         }
@@ -12,47 +11,41 @@ class Solution {
         Arrays.sort(start);
         Arrays.sort(end);
         
-        int[] res = new int[persons.length];
+        int[] answer = new int[people.length];
         
-        for (int i = 0; i < persons.length; i++) {
-            int t = persons[i];
-            int started = binarySearchUpperBound(start, t);
-            int ended = binarySearchLowerBound(end, t);
-            res[i] = started - ended;
+        for (int i = 0; i < people.length;i++) {
+            int p = people[i];
+            int started = upperBound(start, p);
+            int ended = lowerBound(end, p);
+            
+            answer[i] = started - ended;
         }
+    
         
-        return res;
+        return answer;
     }
     
-    private int binarySearchUpperBound(int[] arr, int target) {
-        int left = 0;
-        int right = arr.length;
+    public int upperBound(int[] array, int target) {
+        int low = 0;
+        int high = array.length;
         
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (arr[mid] <= target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (array[mid] <= target) low = mid + 1;
+            else high = mid;
         }
-        
-        return left;
+        return low;
     }
     
-    private int binarySearchLowerBound(int[] arr, int target) {
-        int left = 0;
-        int right = arr.length;
+    public int lowerBound(int[] array, int target) {
+        int low = 0;
+        int high = array.length;
         
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (arr[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (array[mid] < target) low = mid + 1;
+            else high = mid;
         }
-        
-        return left;
+        return low;
     }
 }
