@@ -68,7 +68,6 @@ class Solution {
                 right = mid;
             }
         }
-        System.out.print(mountainArr.get(left) + " ");
         
         if (mountainArr.get(right) == target) return right;
         else return -1;
