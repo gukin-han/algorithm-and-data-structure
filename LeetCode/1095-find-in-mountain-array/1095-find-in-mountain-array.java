@@ -34,7 +34,6 @@ class Solution {
             if (left == right) topIndex = left;
         }
         
-        System.out.println("topAt" + topIndex);
         
         if (target == mountainArr.get(topIndex)) return topIndex;
         
