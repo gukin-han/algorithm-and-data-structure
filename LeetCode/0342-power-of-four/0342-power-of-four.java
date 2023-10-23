@@ -4,7 +4,6 @@ class Solution {
         int x = 1; 
         for (int i = 1; i < 16; i++) {
             x = x << 2;
-            System.out.println(n);
             if (n == x) return true;
         }
          return false;
