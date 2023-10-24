@@ -15,7 +15,6 @@
  */
 class Solution {
     public List<Integer> largestValues(TreeNode root) {
-        
         List<Integer> answer = new ArrayList<>();
         if (root == null) return answer;
         Deque<TreeNode> q = new LinkedList<>();
