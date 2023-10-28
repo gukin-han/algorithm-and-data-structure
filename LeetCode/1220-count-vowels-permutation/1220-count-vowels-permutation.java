@@ -7,18 +7,17 @@ class Solution {
         }
 
         for (int j = 2; j <= n; j++) {
-            // ended with a
-            long a = aeiou[j - 1][0] % MOD;
-            long e = aeiou[j - 1][1] % MOD;
-            long i = aeiou[j - 1][2] % MOD;
-            long o = aeiou[j - 1][3] % MOD;
-            long u = aeiou[j - 1][4] % MOD;
+            long a = aeiou[j - 1][0];
+            long e = aeiou[j - 1][1];
+            long i = aeiou[j - 1][2];
+            long o = aeiou[j - 1][3];
+            long u = aeiou[j - 1][4];
 
-            aeiou[j][0] = (e + i + u); // ended with a
-            aeiou[j][1] = (a + i); // ended with e
-            aeiou[j][2] = (e + o); // ended with i
-            aeiou[j][3] = i; // ended with o
-            aeiou[j][4] = (i + o); // ended with u
+            aeiou[j][0] = (e + i + u) % MOD;
+            aeiou[j][1] = (a + i) % MOD;
+            aeiou[j][2] = (e + o) % MOD;
+            aeiou[j][3] = i% MOD; 
+            aeiou[j][4] = (i + o)% MOD; 
         }
 
         long result = 0;
