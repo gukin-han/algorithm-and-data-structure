@@ -14,41 +14,35 @@
  * }
  */
 class Solution {
+    private int currentVal;
+    private int currentCount = 0;
+    private int maxCount = 0;
+    private List<Integer> modes = new ArrayList<>();
+
     public int[] findMode(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>();
-        Map<Integer, Integer> map = new HashMap<>();
-        q.add(root);
-        int mostFrequeny = 0;
-        int mostFrequentValue = Integer.MAX_VALUE;
-        
-        while(!q.isEmpty()) {
-            TreeNode cur = q.poll();
-            if (cur != null) {
-                map.put(cur.val, map.getOrDefault(cur.val, 0) + 1);
-                if (map.get(cur.val) > mostFrequeny){
-                    mostFrequeny = map.get(cur.val);
-                    mostFrequentValue = cur.val;
-                }
-                
-                if (cur.left != null) {
-                    q.add(cur.left);
-                }
-                
-                if (cur.right != null) {
-                    q.add(cur.right);
-                }
-            }
-        }
-        List<Integer> list = new ArrayList<>();
-        for (Integer key: map.keySet()) {
-            if (map.get(key) == mostFrequeny) list.add(key);
-        }
-        
-        int[] result = new int[list.size()];
-        for (int i = 0; i < result.length;i++) {
-            result[i] = list.get(i);
+        inOrderTraversal(root);
+        int[] result = new int[modes.size()];
+        for (int i = 0; i < modes.size(); i++) {
+            result[i] = modes.get(i);
         }
         return result;
-        
+    }
+
+    private void inOrderTraversal(TreeNode node) {
+        if (node == null) return;
+
+        inOrderTraversal(node.left);
+
+        currentCount = (node.val == currentVal) ? currentCount + 1 : 1;
+        if (currentCount == maxCount) {
+            modes.add(node.val);
+        } else if (currentCount > maxCount) {
+            maxCount = currentCount;
+            modes.clear();
+            modes.add(node.val);
+        }
+        currentVal = node.val;
+
+        inOrderTraversal(node.right);
     }
 }
