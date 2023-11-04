@@ -2,20 +2,9 @@ import java.util.OptionalInt;
 
 class Solution {
     public int getLastMoment(int n, int[] left, int[] right) {
-        int result = -1;
-        
-        if (left.length != 0) {
-            Arrays.sort(left);
-            result = left[left.length - 1];
-        }
-        
-        if (right.length != 0) {
-            Arrays.sort(right);
-            result = Math.max(result, n - right[0]);
-        }
-        
-        return result;
-
+        int maxLeft = left.length == 0 ? 0 : Arrays.stream(left).max().getAsInt();
+        int minRight = right.length == 0 ? n : Arrays.stream(right).min().getAsInt();
+        return Math.max(maxLeft, n - minRight);
     }
 
 }
