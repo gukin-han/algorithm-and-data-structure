@@ -1,33 +1,40 @@
 class Solution {
-    private int[] drow = new int[]{-1, -1, -1, 0, 0 ,0, 1, 1, 1};
-    private int[] dcol = new int[]{-1, 0, 1, -1, 0, 1, -1, 0, 1};
-    
+    private int m;
+    private int n;
+    private int[][] img;
     public int[][] imageSmoother(int[][] img) {
-        int m = img.length;
-        int n = img[0].length;
+        m = img.length;
+        n = img[0].length;
+        this.img = img;
         
-        int[][] ret = new int[m][n];
+        int[][] answer = new int[m][n];
+        
         for (int row = 0; row < m; row++) {
             for (int col = 0; col < n; col++) {
-                
-                int count = 0;
-                int sum = 0;
-                
-                for (int i = 0; i < 9; i++) {
-                    int newRow = row + drow[i];
-                    int newCol = col + dcol[i];
-                    
-                    if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n) {
-                        count++;
-                        sum += img[newRow][newCol];
-                    }
-                }
-                
-                ret[row][col] = (sum / count);
-                
+                answer[row][col] = getSmoothed(row, col);
             }
         }
         
-        return ret;
+        return answer;
+        
+    }
+    
+    private int getSmoothed(int row, int col) {
+        
+        int count = 0;
+        int sum = 0;
+        
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int newRow = row + i;
+                int newCol = col + j;
+                if (newRow < m && newRow >= 0 && newCol < n && newCol >= 0) {
+                    count++;
+                    sum += img[newRow][newCol];
+                }
+            }
+        }
+        
+        return sum / count;
     }
 }
