@@ -4,7 +4,7 @@ class Solution {
         int x = 0;
         int y = 0;
         visited.add(new Pair(x, y));
-        //changed
+        //test
         for (char c: path.toCharArray()) {
             switch (c) {
                 case 'N': x++; break;
