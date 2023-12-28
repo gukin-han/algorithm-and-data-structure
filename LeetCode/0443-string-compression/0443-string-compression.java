@@ -1,3 +1,4 @@
+Java
 class Solution {
     public int compress(char[] chars) {
         if (chars.length == 1) return chars.length;
@@ -23,7 +24,6 @@ class Solution {
             
         }
         
-        System.out.println(s);
         for (int i = 0; i < s.length(); i++) {
             chars[i] = s.charAt(i);
         }
