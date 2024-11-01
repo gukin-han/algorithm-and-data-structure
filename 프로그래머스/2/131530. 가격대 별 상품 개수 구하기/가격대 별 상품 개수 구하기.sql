@@ -1,7 +1,5 @@
 -- 코드를 입력하세요
-SELECT
-(price div 10000) * 10000 as price_group
-, count(product_id) as products
+SELECT price - price % 10000 price_group, count(*) products
 from product
-group by price_group
-order by price_group asc
+group by price - price % 10000
+order by price - price * 10000 desc
