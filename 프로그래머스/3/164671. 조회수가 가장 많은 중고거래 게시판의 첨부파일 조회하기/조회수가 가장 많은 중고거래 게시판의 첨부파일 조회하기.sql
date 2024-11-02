@@ -1,14 +1,13 @@
 -- 코드를 입력하세요
-with max_views_board_id as (
-    select
-    max(views) max_view
-    from USED_GOODS_BOARD 
+
+with most_view as (
+    select *
+    from USED_GOODS_BOARD
+    order by views desc
+    limit 1
 )
 
-
-SELECT
-concat('/home/grep/src/', ugf.BOARD_ID, '/', ugf.file_id, ugf.FILE_NAME, ugf.FILE_EXT) as FILE_PATH
-from USED_GOODS_BOARD ugb
-inner join USED_GOODS_FILE ugf on ugb.board_id = ugf.board_id
-inner join max_views_board_id mvbi on mvbi.max_view = ugb.views
-order by ugf.FILE_ID desc
+select concat('/home/grep/src/', ugf.board_id,'/', ugf.file_id, ugf.file_name, ugf.file_ext) as fild_path from most_view mv
+inner join used_goods_file ugf
+on mv.board_id = ugf.board_id
+order by ugf.file_id desc

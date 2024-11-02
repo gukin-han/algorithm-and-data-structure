@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 10월 12일 13:36:07
+2024년 11월 02일 11:12:16
 
 ### 문제 설명
 
@@ -104,7 +104,7 @@ Empty
 
 <h5>문제</h5>
 
-<p><code>USED_GOODS_BOARD</code>와 <code>USED_GOODS_FILE</code> 테이블에서 조회수가 가장 높은 중고거래 게시물에 대한 첨부파일 경로를 조회하는  SQL문을 작성해주세요. 첨부파일 경로는 FILE ID를 기준으로 내림차순 정렬해주세요. 기본적인 파일경로는 /home/grep/src/ 이며, 게시글 ID를 기준으로 디렉토리가 구분되고, 파일이름은 파일 ID, 파일 이름, 파일 확장자로 구성되도록 출력해주세요. 조회수가 가장 높은 게시물은 하나만 존재합니다.</p>
+<p><code>USED_GOODS_BOARD</code>와 <code>USED_GOODS_FILE</code> 테이블에서 <web-highlight class="webhighlights-highlight" data-highlight-id="8e8d51f3-3a25-465a-a1d3-c29fd59edf45" data-highlight-split-type="both" data-highlight-id-extra="" markid="672588c53f2b7f54d1c36b0f" media-type="blockquote" style="background-color: rgb(253, 255, 180); cursor: pointer;">조회수가 가장 높은</web-highlight> 중고거래 게시물에 대한 첨부파일 경로를 조회하는  SQL문을 작성해주세요. 첨부파일 경로는 FILE ID를 기준으로 내림차순 정렬해주세요. 기본적인 파일경로는 /home/grep/src/ 이며, 게시글 ID를 기준으로 디렉토리가 구분되고, 파일이름은 파일 ID, 파일 이름, 파일 확장자로 구성되도록 출력해주세요. 조회수가 가장 높은 게시물은 하나만 존재합니다.</p>
 
 <hr>
 
