@@ -1,24 +1,31 @@
-WITH SKILL_P AS (
-    SELECT CODE
-    FROM SKILLCODES
-    WHERE NAME = 'Python'
-),
-SKILL_F AS (
-    SELECT SUM(CODE) AS CODE
-    FROM SKILLCODES
-    WHERE CATEGORY = 'Front End'
-),
-SKILL_C AS (
-    SELECT CODE
-    FROM SKILLCODES
-    WHERE NAME = 'C#'
+-- 코드를 작성해주세요
+with a as (
+    select (s1.code + s2.code) as code from SKILLCODES s1
+    cross join SKILLCODES s2
+    where s2.name = 'Python'
+    and s1.category = 'Front End'
+), result as (
+
+select 
+case 
+    when (d.skill_code & a.code = a.code) then 'A'
+    when (d.skill_Code & b.code = b.code) then 'B'
+    when (d.skill_code & c.code = c.code) then 'C'
+end as grade, 
+    d.id, 
+    d.email
+from DEVELOPERS d
+inner join a
+inner join SKILLCODES b on b.name = 'C#'
+inner join skillcodes c on c.category = 'Front End'
+where case 
+    when (d.skill_code & a.code = a.code) then 'A'
+    when (d.skill_Code & b.code = b.code) then 'B'
+    when (d.skill_code & c.code = c.code) then 'C'
+end is not null
 )
-SELECT CASE
-        WHEN SKILL_P.CODE & SKILL_CODE AND SKILL_F.CODE & SKILL_CODE THEN 'A'
-        WHEN SKILL_C.CODE & SKILL_CODE THEN 'B'
-        WHEN SKILL_F.CODE & SKILL_CODE THEN 'C' 
-        END GRADE,
-        ID, EMAIL
-FROM DEVELOPERS, SKILL_P, SKILL_F, SKILL_C
-HAVING GRADE IS NOT NULL 
-ORDER BY GRADE, ID
+
+select min(grade) grade, id, email from result
+group by id, email
+order by min(grade) asc, id
+
