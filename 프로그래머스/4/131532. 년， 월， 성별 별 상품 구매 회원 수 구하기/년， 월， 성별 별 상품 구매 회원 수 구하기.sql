@@ -1,9 +1,7 @@
-select 
-year(os.sales_date) as year,
-month(os.sales_date) * 1 as month,
-ui.GENDER,
-count(distinct os.user_id) USERS
+-- 코드를 입력하세요
+SELECT year(sales_Date) year, month(sales_Date) month, gender, count(distinct os.user_id) as users
 from ONLINE_SALE os
-inner join USER_INFO ui on os.user_id = ui.user_id and ui.GENDER is not null
-group by year, month, ui.gender
-order by year asc, month asc, ui.gender asc
+inner join user_info ui
+on os.user_id = ui.user_id
+group by year(sales_date), month(sales_date), gender having gender is not null
+order by year(sales_date), month(sales_date), gender
