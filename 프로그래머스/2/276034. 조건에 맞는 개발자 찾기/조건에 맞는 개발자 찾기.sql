@@ -1,11 +1,7 @@
-select id, email, first_name, last_name
-from DEVELOPERS
-where SKILL_CODE & (
-    select sum(code) from skillcodes where name in ('Python','C#')
-)
+-- 코드를 작성해주세요
+select distinct d.id, d.email, d.first_name, d.last_name
+from DEVELOPERS d
+inner join skillcodes s
+on s.name in ('Python', 'C#')
+and d.skill_code & s.code = s.code
 order by id asc
-
-# SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
-# FROM DEVELOPERS
-# WHERE SKILL_CODE & (SELECT SUM(CODE) FROM SKILLCODES WHERE NAME IN ('Python', 'C#'))
-# ORDER BY ID ASC;
