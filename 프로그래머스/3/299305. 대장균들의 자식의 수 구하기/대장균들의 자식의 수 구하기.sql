@@ -1,17 +1,5 @@
-with child_count as (
-    select parent_id, count(*) as child_count
-    from ECOLI_DATA ed
-    group by ed.parent_id having parent_id is not null
-)
-
-select 
-id
-, case when child_count is null then 0
-else child_count 
-end child_count
-from ECOLI_DATA ed
-left join child_count cc
-on cc.parent_id = ed.id
-order by ed.id asc
-
-
+-- 코드를 작성해주세요
+select p.id, sum(case when c.PARENT_ID is not null then 1 else 0 end) as child_count FROM ECOLI_DATA p
+left join ECOLI_DATA c
+on p.id = c.parent_id
+group by p.id
